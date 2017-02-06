@@ -87,11 +87,21 @@ const actions = {
   fetchProduct: fetchProduct,
   sendProductBubble: sendProductBubble,
   merge: mergeCategory,
+  fetchProductInCategory: fetchProductInCategory,
+  sendProductsList: sendProductsList
 
   // You should implement your custom actions here
   // See https://wit.ai/docs/quickstart
 };
 
+
+function merge({context,entities}){
+  var category = firstEntityValue(entities, 'loai_san_pham');
+  if (category) {
+    context.category = category;
+  }
+  return context;
+}
 
 function fetchProduct({sessionId, context, entities}) {
   return new Promise(function(resolve, reject) {
@@ -119,12 +129,31 @@ function sendProductBubble({sessionId, context, entities}) {
   botActions.sendProduct(recipientId,product);
 }
 
-function merge({context,entities}){
-  var category = firstEntityValue(entities, 'loai_san_pham');
-  if (category) {
-    context.category = category;
-  }
-  return context;
+
+
+function fetchProductInCategory({sessionId, context, entities}){
+  return new Promise(function(resolve, reject) {
+    var category = context.category;
+    console.log(category);
+    delete context.products;
+    delete context.not_found;
+    wooAPI.productsByKeyword(category).then(function(products){
+        if(products.length > 0){
+          context.products = products;
+          return resolve(context);
+        }else{
+          context.not_found = true;
+          return resolve(context);
+        }
+    });
+  });
+
+}
+
+function sendProductsList({sessionId, context, entities}){
+  const recipientId = sessions[sessionId].fbid;
+  let products = context.products ;
+  botActions.sendListProducts(recipientId,products);
 }
 
 // Setting up our bot

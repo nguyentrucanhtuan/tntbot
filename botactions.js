@@ -115,8 +115,7 @@ BotActions.prototype.sendCoffeeList = function(sender){
   });
 }
 
-BotActions.prototype.sendFindProducts = function(sender,keyword, resolve){
-  wooAPI.productsByKeyword(keyword).then(function(products){
+BotActions.prototype.sendListProducts = function(sender,products){
     let elements = [];
     products.map(function(product){
         let element = {
@@ -135,9 +134,7 @@ BotActions.prototype.sendFindProducts = function(sender,keyword, resolve){
 
     botly.sendGeneric({id: sender, elements: elements},function (err, data) {
         console.log("send generic cb:", err, data);
-        return resolve();
     });
-  })
 }
 
 module.exports = BotActions;
