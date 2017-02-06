@@ -138,6 +138,7 @@ function fetchProductInCategory({sessionId, context, entities}){
     delete context.products;
     delete context.not_found;
     wooAPI.productsByKeyword(category).then(function(products){
+       console.log(products)
         if(products.length > 0){
           context.products = products;
           return resolve(context);
