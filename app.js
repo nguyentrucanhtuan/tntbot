@@ -101,6 +101,7 @@ function fetchProduct(request) {
   if (product) {
     context.product = product;
     context.productInfo= product + 'giá 120K/kg';
+    return context;
   }else{
     context.missingProduct = true;
     return context;
