@@ -91,11 +91,9 @@ const actions = {
 };
 
 
-function fetchProduct(request) {
-  var context = request.context;
-  var entities = request.entities;
+function fetchProduct(context, entities}) {
   var product = firstEntityValue(entities, 'product');
-  console.log(request.entities);
+  console.log(entities);
   delete context.product;
   delete context.missingProduct;
   if (product) {
