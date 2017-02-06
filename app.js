@@ -91,7 +91,7 @@ const actions = {
 };
 
 
-function fetchProduct(context, entities}) {
+function fetchProduct({sessionId, context, entities}) {
   var product = firstEntityValue(entities, 'product');
   console.log(entities);
   delete context.product;
