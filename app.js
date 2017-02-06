@@ -100,9 +100,8 @@ function fetchProduct({sessionId, context, entities}) {
     delete context.missingProduct;
     if (product) {
       wooAPI.productsPriceByName(product).then(function(data){
-          context.product = data;
-          console.log(data);
-          context.productInfo = data.name + ' giá '+data[0].price +' VNĐ';
+          context.product = data[0];
+          context.productInfo = data[0].name + ' giá '+data[0].price +' VNĐ';
           return resolve(context);
       })
     }else{
