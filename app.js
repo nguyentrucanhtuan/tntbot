@@ -92,13 +92,13 @@ const actions = {
 
 
 function fetchProduct({sessionId, context, entities}) {
-  var product = firstEntityValue(entities, 'product');
+  var product = firstEntityValue(entities, 'san_pham');
   console.log(entities);
   delete context.product;
   delete context.missingProduct;
   if (product) {
     context.product = product;
-    context.productInfo= product + 'giá 120K/kg';
+    context.productInfo = product + 'giá 120K/kg';
     return context;
   }else{
     context.missingProduct = true;
