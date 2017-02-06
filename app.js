@@ -86,7 +86,7 @@ const actions = {
   },
   fetchProduct: fetchProduct,
   sendProductBubble: sendProductBubble,
-  mergeCategory: mergeCategory,
+  merge: mergeCategory,
 
   // You should implement your custom actions here
   // See https://wit.ai/docs/quickstart
@@ -119,7 +119,7 @@ function sendProductBubble({sessionId, context, entities}) {
   botActions.sendProduct(recipientId,product);
 }
 
-function mergeCategory({context,entities}){
+function merge({context,entities}){
   var category = firstEntityValue(entities, 'loai_san_pham');
   if (category) {
     context.category = category;
