@@ -86,7 +86,7 @@ const actions = {
   },
   fetchProduct: fetchProduct,
   sendProductBubble: sendProductBubble,
-  merge: mergeCategory,
+  merge: merge,
   fetchProductInCategory: fetchProductInCategory,
   sendProductsList: sendProductsList
 
