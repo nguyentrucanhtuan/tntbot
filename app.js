@@ -93,21 +93,24 @@ const actions = {
 
 
 function fetchProduct({sessionId, context, entities}) {
-  var product = firstEntityValue(entities, 'san_pham');
-  console.log(product);
-  delete context.product;
-  delete context.missingProduct;
-  if (product) {
-    wooAPI.productsPriceByName(product).then(function(data){
-        context.product = data;
-        console.log(data);
-        context.productInfo = data.name + ' giá '+data[0].price +' VNĐ';
-        return context;
-    })
-  }else{
-    context.missingProduct = true;
-    return context;
-  }
+  return new Promise(function(resolve, reject) {
+    var product = firstEntityValue(entities, 'san_pham');
+    console.log(product);
+    delete context.product;
+    delete context.missingProduct;
+    if (product) {
+      wooAPI.productsPriceByName(product).then(function(data){
+          context.product = data;
+          console.log(data);
+          context.productInfo = data.name + ' giá '+data[0].price +' VNĐ';
+          return resolve(context);
+      })
+    }else{
+      context.missingProduct = true;
+      return resolve(context);
+    }
+  });
+
 }
 
 function sendProductBubble({sessionId, context, entities}) {
