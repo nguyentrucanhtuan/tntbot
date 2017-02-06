@@ -94,12 +94,13 @@ const actions = {
 
 function fetchProduct({sessionId, context, entities}) {
   var product = firstEntityValue(entities, 'san_pham');
-  console.log(entities);
+  console.log(product);
   delete context.product;
   delete context.missingProduct;
   if (product) {
     wooAPI.productsPriceByName(product).then(function(data){
         context.product = data;
+        console.log(data);
         context.productInfo = data.name + ' giá '+data[0].price +' VNĐ';
         return context;
     })
