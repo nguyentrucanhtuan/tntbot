@@ -85,6 +85,7 @@ const actions = {
     });
   },
   fetchProduct: fetchProduct,
+  sendProductBubble: sendProductBubble
 
   // You should implement your custom actions here
   // See https://wit.ai/docs/quickstart
@@ -97,13 +98,22 @@ function fetchProduct({sessionId, context, entities}) {
   delete context.product;
   delete context.missingProduct;
   if (product) {
-    context.product = product;
-    context.productInfo = product + ' giá 120K/kg';
-    return context;
+    wooAPI.productsPriceByName(product).then(function(data){
+        context.product = data;
+        context.productInfo = data.name + ' giá '+data[0].price +' VNĐ';
+        return context;
+    })
   }else{
     context.missingProduct = true;
     return context;
   }
+}
+
+function sendProductBubble({sessionId, context, entities}) {
+  const recipientId = sessions[sessionId].fbid;
+  let product = context.product ;
+  console.log(product);
+  //botActions.sendProduct(recipientId,coffee);
 }
 
 // Setting up our bot
