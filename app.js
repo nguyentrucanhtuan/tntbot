@@ -115,8 +115,7 @@ function fetchProduct({sessionId, context, entities}) {
 function sendProductBubble({sessionId, context, entities}) {
   const recipientId = sessions[sessionId].fbid;
   let product = context.product ;
-  console.log(product);
-  //botActions.sendProduct(recipientId,coffee);
+  botActions.sendProduct(recipientId,product);
 }
 
 // Setting up our bot

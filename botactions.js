@@ -73,9 +73,6 @@ BotActions.prototype.sendProducts = function(sender,categoryId){
 }
 
 BotActions.prototype.sendProduct = function(sender,product){
-  wooAPI.productsPriceByName(product).then(function(products){
-    product = products[0]; // we should call a weather API here
-
     let element = {
       "title": product.name,
       "image_url": product.images[0].src,
@@ -92,8 +89,6 @@ BotActions.prototype.sendProduct = function(sender,product){
     botly.sendGeneric({id: sender, elements: element},function (err, data) {
         console.log("send generic cb:", err, data);
     });
-  });
-
 }
 
 BotActions.prototype.sendCoffeeList = function(sender){
