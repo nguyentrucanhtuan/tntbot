@@ -98,7 +98,7 @@ function fetchProduct({sessionId, context, entities}) {
   delete context.missingProduct;
   if (product) {
     context.product = product;
-    context.productInfo = product + 'giá 120K/kg';
+    context.productInfo = product + ' giá 120K/kg';
     return context;
   }else{
     context.missingProduct = true;
