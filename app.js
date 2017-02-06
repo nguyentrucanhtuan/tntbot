@@ -84,10 +84,28 @@ const actions = {
         return resolve();
     });
   },
-  
+  fetchProduct: fetchProduct,
+
   // You should implement your custom actions here
   // See https://wit.ai/docs/quickstart
 };
+
+
+function fetchProduct(request) {
+  var context = request.context;
+  var entities = request.entities;
+  var product = firstEntityValue(entities, 'product');
+
+  delete context.product;
+  delete context.missingProduct;
+  if (product) {
+    context.product = product;
+    context.productInfo= product + 'giá 120K/kg';
+  }else{
+    context.missingProduct = true;
+    return context;
+  }
+}
 
 // Setting up our bot
 const wit = new Wit({
