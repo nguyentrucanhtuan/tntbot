@@ -251,7 +251,6 @@ botly.on('postback', (sender, message, postback) => {
         console.log(err);
       });
       //botActions.sendProducts(sender,categoryId);
-  }
   }else if(postback && postback.indexOf("ADD_WISHLIST_PRODUCT_") !== -1){
       let productId = parseInt(postback.replace('ADD_WISHLIST_PRODUCT_',''))
       console.log(productId)
