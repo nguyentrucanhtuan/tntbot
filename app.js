@@ -254,6 +254,10 @@ botly.on('postback', (sender, message, postback) => {
   }else if(postback && postback.indexOf("ADD_WISHLIST_PRODUCT_") !== -1){
       let productId = parseInt(postback.replace('ADD_WISHLIST_PRODUCT_',''))
       console.log(productId)
+      botly.sendText({id: sender, text: 'Cảm ơn bạn đã yêu thích sản phẩm'}, function (err, data) {
+      //log it
+        console.log(err);
+      });
       //botActions.sendProducts(sender,categoryId);
   }
   else{
