@@ -214,8 +214,9 @@ botly.on('message', (sender, message, data) => {
 
 botly.on('postback', (sender, message, postback) => {
    console.log(message);
+   const sessionId = findOrCreateSession(sender);
    if(message.message && message.message.quick_reply.payload == 'empty'){
-     const sessionId = findOrCreateSession(sender);
+
      wit.runActions(
                 sessionId, // the user's current session
                 message.message.text, // the user's message
@@ -242,7 +243,21 @@ botly.on('postback', (sender, message, postback) => {
        let categoryId = parseInt(postback.replace('PRODUCT_BY_CATEGORY_',''))
        console.log(categoryId)
        botActions.sendProducts(sender,categoryId);
-  }else{
+  }else if(postback && postback.indexOf("BUY_PRODUCT_BY_ID_") !== -1){
+      let productId = parseInt(postback.replace('BUY_PRODUCT_BY_ID_',''))
+      console.log(productId)
+      botly.sendText({id: sender, text: 'Cảm ơn bạn đã mua sản phẩm'}, function (err, data) {
+      //log it
+        console.log(err);
+      });
+      //botActions.sendProducts(sender,categoryId);
+  }
+  }else if(postback && postback.indexOf("ADD_WISHLIST_PRODUCT_") !== -1){
+      let productId = parseInt(postback.replace('ADD_WISHLIST_PRODUCT_',''))
+      console.log(productId)
+      //botActions.sendProducts(sender,categoryId);
+  }
+  else{
       switch (postback) {
   			case 'start_shopping':
   				botActions.sendCategoriesList(sender)
