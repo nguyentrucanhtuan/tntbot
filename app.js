@@ -266,7 +266,9 @@ botly.on('postback', (sender, message, postback) => {
   				botActions.sendCategoriesList(sender)
   				break;
 
-
+        case 'show_my_wishlist':
+          botActions.sendMyWishlist(sender)
+          break;
   		}
     }
 
@@ -292,6 +294,7 @@ if (pageId) {
     });
 		var buttons = [
 				botly.createPostbackButton('Bắt đầu mua sắm', 'start_shopping'),
+        botly.createPostbackButton('Danh sách thường mua', 'show_my_wishlist'),
 				botly.createPostbackButton('View Website', 'view_website'),
 				botly.createPostbackButton('Top selling', 'show_top_selling')
 		]
