@@ -25,7 +25,7 @@ BotActions.prototype.sendCategoriesList = function(sender){
     let quick_replies = []
 
     categories.map(function(category){
-        let quick_reply = botly.createQuickReply(category.name,"send_product_by_category_id_"+category.id);
+        let quick_reply = botly.createQuickReply(category.name,"PRODUCT_BY_CATEGORY_"+category.id);
        quick_replies.push(quick_reply)
     })
 
