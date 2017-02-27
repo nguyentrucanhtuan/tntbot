@@ -22,6 +22,24 @@ function BotActions() {
 BotActions.prototype.sendCategoriesList = function(sender){
   wooAPI.getCategories().then(function (categories){
     console.log(sender)
+    let quick_replies = []
+
+    categories.map(function(category){
+        let quick_reply = botly.createQuickReply(category.name,"send_product_by_category_id_"+category.id);
+       quick_replies.push(quick_reply)
+    })
+
+
+    botly.sendText({id: sender, text: "TnTDrink cung cấp các sản phẩm sau:", quick_replies},function (err, data) {
+        console.log("send generic cb:", err, data);
+    });
+  })
+
+};
+
+BotActions.prototype.sendCategoriesQuickReply = function(sender){
+  wooAPI.getCategories().then(function (categories){
+    console.log(sender)
     let elements = []
     categories.map(function(category){
         let element = {
@@ -44,6 +62,7 @@ BotActions.prototype.sendCategoriesList = function(sender){
   })
 
 };
+
 
 
 BotActions.prototype.sendProducts = function(sender,categoryId){
@@ -148,9 +167,9 @@ BotActions.prototype.sendMyWishlist = function(sender){
 BotActions.prototype.sendTips = function(sender){
   let tipsSearch = " - Gõ \"tìm kiếm: cafe nguyên chất\" để tìm kiếm cafe nguyên chất.";
 
-  let tipsShowBlog = "";
+  let tipsShowBlog = 'Gõ "Kho công thức" để xem các bài hướng dẫn pha chế';
 
-  let tipsBankAccount ="";
+  let tipsBankAccount ='Gõ ngân hàng ';
 
   let tipsContact= "";
 
