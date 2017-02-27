@@ -144,4 +144,19 @@ BotActions.prototype.sendMyWishlist = function(sender){
 
   });
 }
+
+BotActions.prototype.sendTips = function(sender){
+  let tipsSearch = " - Gõ \"tìm kiếm: cafe nguyên chất\" để tìm kiếm cafe nguyên chất.";
+
+  let tipsShowBlog = "";
+
+  let tipsBankAccount ="";
+
+  let tipsContact= "";
+
+  var message =  "Quý khách có thể thực hiện các lệnh sau: \n"+ tipsSearch;
+  botly.sendText({id : sender, text: message}, function (err,data){
+
+  });
+}
 module.exports = BotActions;

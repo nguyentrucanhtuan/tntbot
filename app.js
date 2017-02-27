@@ -269,6 +269,10 @@ botly.on('postback', (sender, message, postback) => {
         case 'show_my_wishlist':
           botActions.sendMyWishlist(sender)
           break;
+
+        case 'show_tips':
+            botActions.sendTips(sender)
+            break;
   		}
     }
 
@@ -296,6 +300,7 @@ if (pageId) {
 				botly.createPostbackButton('Bắt đầu mua sắm', 'start_shopping'),
         botly.createPostbackButton('Danh sách thường mua', 'show_my_wishlist'),
 				botly.createPostbackButton('View Website', 'view_website'),
+        botly.createPostbackButton('Hướng dẫn', 'show_tips'),
 				botly.createPostbackButton('Top selling', 'show_top_selling')
 		]
     botly.setPersistentMenu({pageId: pageId, buttons: buttons}, function (err, body) {
