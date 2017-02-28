@@ -89,6 +89,7 @@ const actions = {
   merge: merge,
   fetchProductInCategory: fetchProductInCategory,
   sendProductsList: sendProductsList
+  congthuccafetruyenthong: sendcongthuccafetruyenthong
 
   // You should implement your custom actions here
   // See https://wit.ai/docs/quickstart
@@ -155,6 +156,12 @@ function sendProductsList({sessionId, context, entities}){
   const recipientId = sessions[sessionId].fbid;
   let products = context.products ;
   botActions.sendListProducts(recipientId,products);
+}
+
+
+function sendcongthuccafetruyenthong({sessionId, context, entities}){
+  const recipientId = sessions[sessionId].fbid;
+  botActions.sendCTCafeTruyenThong(recipientId);
 }
 
 // Setting up our bot
