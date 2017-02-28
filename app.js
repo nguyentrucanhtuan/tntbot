@@ -89,7 +89,12 @@ const actions = {
   merge: merge,
   fetchProductInCategory: fetchProductInCategory,
   sendProductsList: sendProductsList,
-  congthuccafetruyenthong: sendcongthuccafetruyenthong
+  congthuccafetruyenthong: sendcongthuccafetruyenthong,
+  congthuctrasua: sendcongthuctrasua,
+  congthuccafedaxay: sendcongthuccafedaxay,
+  congthucphasinhto: sendcongthucphasinhto,
+  congthuctradao: sendcongthuctradao,
+  congthucsoda: sendcongthucsoda
 
   // You should implement your custom actions here
   // See https://wit.ai/docs/quickstart
@@ -163,6 +168,34 @@ function sendcongthuccafetruyenthong({sessionId, context, entities}){
   const recipientId = sessions[sessionId].fbid;
   botActions.sendCTCafeTruyenThong(recipientId);
 }
+
+function sendcongthuctrasua({sessionId, context, entities}){
+  const recipientId = sessions[sessionId].fbid;
+  botActions.sendCTCafeTruyenThong(recipientId);
+}
+
+function sendcongthuccafedaxay({sessionId, context, entities}){
+  const recipientId = sessions[sessionId].fbid;
+  botActions.sendCTCafeTruyenThong(recipientId);
+}
+
+function sendcongthucphasinhto({sessionId, context, entities}){
+  const recipientId = sessions[sessionId].fbid;
+  botActions.sendCTCafeTruyenThong(recipientId);
+}
+
+function sendcongthucsoda({sessionId, context, entities}){
+  const recipientId = sessions[sessionId].fbid;
+  botActions.sendCTCafeTruyenThong(recipientId);
+}
+
+
+function sendcongthucsoda({sessionId, context, entities}){
+  const recipientId = sessions[sessionId].fbid;
+  botActions.sendCTCafeTruyenThong(recipientId);
+}
+
+
 
 // Setting up our bot
 const wit = new Wit({
