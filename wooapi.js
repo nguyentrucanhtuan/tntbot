@@ -25,4 +25,8 @@ WooAPI.prototype.productsByKeyword = function(search = ''){
   var data = {search: search, per_page: 3}
   return fetch('https://tnt-react.herokuapp.com/api/products?'+querystring.stringify(data)).then((response) => response.json())
 }
+
+WooAPI.prototype.addWishListItem = function(productId){
+  return fetch('https://tnt-react.herokuapp.com/addWistList/'+productId).then((response) => response.text())
+}
 module.exports = WooAPI;
