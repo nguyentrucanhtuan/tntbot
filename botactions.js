@@ -159,23 +159,21 @@ BotActions.prototype.sendListProducts = function(sender,products){
 
 BotActions.prototype.sendMyWishlist = function(sender){
   var message =  "Qúy khách có thể vào đường dẫn sau để xem danh sách sản phẩm thường mua và thực hiện mua hàng: \n https://goo.gl/Vm6pQY";
+  botly.sendText({id : sender, text: message}, function (err,data){
+
+  });
+}
+
+BotActions.prototype.sendBuyLink = function(sender){
+  var message =  "Tips: Quý khách có thể lọc sản phẩm theo Danh mục sản phẩm hoặc chọn sản phẩm vào danh sách thường mua để mua nhanh lần sau";
   /*botly.sendText({id : sender, text: message}, function (err,data){
 
   });*/
-  let buttons = [];
   buttons.push(botly.createWebURLButton("Đặt hàng", "https://goo.gl/UPEuFJ","full",true))
 
   botly.sendButtons({id: sender, text: message, buttons: buttons}
       , function (err, data) {
           //log it
-  });
-}
-
-BotActions.prototype.sendBuyLink = function(sender){
-  var message =  "Qúy khách có thể vào đường dẫn sau để chọn mua hàng: \n "
-  +"Tips: Quý khách có thể lọc sản phẩm theo Danh mục sản phẩm hoặc chọn sản phẩm vào danh sách thường mua để mua nhanh lần sau.";
-  botly.sendText({id : sender, text: message}, function (err,data){
-
   });
 }
 
