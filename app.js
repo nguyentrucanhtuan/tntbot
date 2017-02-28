@@ -299,7 +299,7 @@ if (pageId) {
 		var buttons = [
 				botly.createPostbackButton('Bắt đầu mua sắm', 'start_shopping'),
         botly.createPostbackButton('Danh sách thường mua', 'show_my_wishlist'),
-        botly.createPostbackButton('Đặt hàng', 'show_buy_link')
+        botly.createPostbackButton('Đặt hàng', 'show_buy_link'),
         botly.createWebURLButton('nguyenlieuphache.com', 'view_website'),
         botly.createPostbackButton('Bạn cần gì?', 'show_what_you_need'),
 
