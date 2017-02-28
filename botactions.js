@@ -228,7 +228,7 @@ BotActions.prototype.sendWhatYouNeed = function(sender){
 BotActions.prototype.sendCTCafeTruyenThong = function(sender){
   let elements = [];
 
-      let element = {
+      let element1 = {
           title: 'CÁCH LÀM LATTE MACHIATO',
           image_url: 'http://nguyenlieuphache.com/wp-content/uploads/2017/01/2-17.jpg',
           subtitle: 'Latte macchiato là một loại đồ uống nóng rất được ưa chuộng. Thành phần của nó gồm có cà phê espresso và sữa',
@@ -239,8 +239,8 @@ BotActions.prototype.sendCTCafeTruyenThong = function(sender){
 
       };
 
-     elements.push(element)
-     let element = {
+     elements.push(element1)
+     let element2 = {
          title: 'HOT CHOCOLATE RASPBERRY',
          image_url: 'http://nguyenlieuphache.com/wp-content/uploads/2015/10/3-7.jpg',
          subtitle: 'Sắp tới lễ rồi chắc buổi tối ở Đà Lạt cũng lạnh nhè nhẹ. Để mọi người cảm thấy ấm lòng, mình gửi tặng các bạn món Hot Chocolate Raspberry. Các chủ quán có thể chạy món này cho chương trình lễ.',
@@ -251,8 +251,8 @@ BotActions.prototype.sendCTCafeTruyenThong = function(sender){
 
      };
 
-    elements.push(element)
-    let element = {
+    elements.push(element2)
+    let element3 = {
         title: 'CÁCH PHA CHẾ CAPPUCCINO CREMA',
         image_url: 'http://nguyenlieuphache.com/wp-content/uploads/2017/01/2-16.jpg',
         subtitle: 'Cà phê là một trong những loại thức uống thịnh hành nhất thế giới nhưng ít khi chúng ta có dịp tìm hiểu về nó.',
@@ -263,8 +263,8 @@ BotActions.prototype.sendCTCafeTruyenThong = function(sender){
 
     };
 
-   elements.push(element)
-   let element = {
+   elements.push(element3)
+   let element4 = {
        title: 'CÔNG THỨC PHA CHẾ CÀ PHÊ MOCHA',
        image_url: 'http://nguyenlieuphache.com/wp-content/uploads/2017/01/2-16.jpg',
        subtitle: 'Cà phê mocha là loại đồ uống khá được ưa chuộng. Thành phần là hỗn hợp giữa cà phê và chocolate.',
@@ -275,7 +275,7 @@ BotActions.prototype.sendCTCafeTruyenThong = function(sender){
 
    };
 
-  elements.push(element)
+  elements.push(element4)
 
   botly.sendGeneric({id: sender, elements: elements},function (err, data) {
 
