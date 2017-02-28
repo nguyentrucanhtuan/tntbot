@@ -170,11 +170,12 @@ BotActions.prototype.sendBuyLink = function(sender){
 
   });*/
   let buttons = []
-  buttons.push(botly.createWebURLButton("Đặt hàng", "https://goo.gl/UPEuFJ","full",true))
+  buttons.push(botly.createWebURLButton("Đặt hàng", "https://goo.gl/UPEuFJ"))
 
   botly.sendButtons({id: sender, text: message, buttons: buttons}
       , function (err, data) {
         console.log(err)
+        console.log(data)
           //log it
   });
 }
