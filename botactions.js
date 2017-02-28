@@ -158,7 +158,7 @@ BotActions.prototype.sendListProducts = function(sender,products){
 
 
 BotActions.prototype.sendMyWishlist = function(sender){
-  var message =  "Qúy khách có thể vào đường dẫn sao để xem danh sách sản phẩm thường mua và thực hiện mua hàng:</br> https://goo.gl/Vm6pQY";
+  var message =  "Qúy khách có thể vào đường dẫn sao để xem danh sách sản phẩm thường mua và thực hiện mua hàng: \n https://goo.gl/Vm6pQY";
   botly.sendText({id : sender, text: message}, function (err,data){
 
   });
