@@ -27,6 +27,6 @@ WooAPI.prototype.productsByKeyword = function(search = ''){
 }
 
 WooAPI.prototype.addWishListItem = function(productId){
-  return fetch('https://tnt-react.herokuapp.com/addWistList/'+productId).then((response) => response.text())
+  return fetch('https://tnt-react.herokuapp.com/add-wishlist/'+productId).then((response) => response.text())
 }
 module.exports = WooAPI;
