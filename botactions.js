@@ -174,6 +174,7 @@ BotActions.prototype.sendBuyLink = function(sender){
 
   botly.sendButtons({id: sender, text: message, buttons: buttons}
       , function (err, data) {
+        console.log(err)
           //log it
   });
 }
