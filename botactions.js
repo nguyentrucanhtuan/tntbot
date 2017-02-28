@@ -178,4 +178,33 @@ BotActions.prototype.sendTips = function(sender){
 
   });
 }
+
+BotActions.prototype.sendWhatYouNeed = function(sender){
+  let quick_replies = [
+    {
+      'Hướng dẫn pha chế',
+      'empty'
+    },
+    {
+      'Tài Khoản Ngân Hàng',
+      'empty'
+    },
+    {
+      'Địa chỉ shop',
+      'empty'
+    },
+    {
+      'Đặt Hàng',
+      'empty'
+    },
+    {
+      'Tìm sản phẩm',
+      'empty'
+    }
+  ];
+
+  botly.sendText({id: sender, text: "bạn cần gì?:", quick_replies},function (err, data) {
+      console.log("send generic cb:", err, data);
+  });
+}
 module.exports = BotActions;

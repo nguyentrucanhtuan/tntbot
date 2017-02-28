@@ -270,8 +270,8 @@ botly.on('postback', (sender, message, postback) => {
           botActions.sendMyWishlist(sender)
           break;
 
-        case 'show_tips':
-            botActions.sendTips(sender)
+        case 'show_what_you_need':
+            botActions.sendWhatYouNeed(sender)
             break;
   		}
     }
@@ -299,9 +299,10 @@ if (pageId) {
 		var buttons = [
 				botly.createPostbackButton('Bắt đầu mua sắm', 'start_shopping'),
         botly.createPostbackButton('Danh sách thường mua', 'show_my_wishlist'),
-				botly.createPostbackButton('View Website', 'view_website'),
-        botly.createPostbackButton('Hướng dẫn', 'show_tips'),
-				botly.createPostbackButton('Top selling', 'show_top_selling')
+        botly.createPostbackButton('Đặt hàng', 'show_buy_link')
+        botly.createWebURLButton('nguyenlieuphache.com', 'view_website'),
+        botly.createPostbackButton('Bạn cần gì?', 'show_what_you_need'),
+
 		]
     botly.setPersistentMenu({pageId: pageId, buttons: buttons}, function (err, body) {
         //console.log("persistent menu cb:", err, body);
