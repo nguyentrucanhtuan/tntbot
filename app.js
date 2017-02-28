@@ -88,7 +88,7 @@ const actions = {
   sendProductBubble: sendProductBubble,
   merge: merge,
   fetchProductInCategory: fetchProductInCategory,
-  sendProductsList: sendProductsList
+  sendProductsList: sendProductsList,
   congthuccafetruyenthong: sendcongthuccafetruyenthong
 
   // You should implement your custom actions here
