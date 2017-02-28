@@ -181,26 +181,26 @@ BotActions.prototype.sendTips = function(sender){
 
 BotActions.prototype.sendWhatYouNeed = function(sender){
   let quick_replies = [
-    {
+    botly.createQuickReply({
       'Hướng dẫn pha chế',
       'empty'
-    },
-    {
+    }),
+    botly.createQuickReply({
       'Tài Khoản Ngân Hàng',
       'empty'
-    },
-    {
+    }),
+    botly.createQuickReply({
       'Địa chỉ shop',
       'empty'
-    },
-    {
+    }),
+    botly.createQuickReply({
       'Đặt Hàng',
       'empty'
-    },
-    {
+    }),
+    botly.createQuickReply({
       'Tìm sản phẩm',
       'empty'
-    }
+    })
   ];
 
   botly.sendText({id: sender, text: "bạn cần gì?:", quick_replies},function (err, data) {
