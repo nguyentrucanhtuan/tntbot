@@ -187,8 +187,10 @@ BotActions.prototype.sendWhatYouNeed = function(sender){
     botly.createQuickReply('Đặt Hàng','empty'),
     botly.createQuickReply('Tìm sản phẩm','empty')
   ];
+  let help = 'Quý khách cần gì? \n'+
+  'Tips: QUý khách có thể gõ trực tiếp cụm từ dưới đây đề truy cập nhanh, ví dụ "hướng dẫn pha chế" để xem các công thức pha chế. Cảm ơn^^'
 
-  botly.sendText({id: sender, text: "bạn cần gì?:", quick_replies},function (err, data) {
+  botly.sendText({id: sender, text: help, quick_replies},function (err, data) {
       console.log("send generic cb:", err, data);
   });
 }
