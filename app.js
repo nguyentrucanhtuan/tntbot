@@ -269,7 +269,9 @@ botly.on('postback', (sender, message, postback) => {
         case 'show_my_wishlist':
           botActions.sendMyWishlist(sender)
           break;
-
+        case 'show_buy_link':
+    			botActions.sendBuyLink(sender)
+    			break;
         case 'show_what_you_need':
             botActions.sendWhatYouNeed(sender)
             break;
