@@ -190,7 +190,7 @@ function sendcongthucsoda({sessionId, context, entities}){
 }
 
 
-function sendcongthucsoda({sessionId, context, entities}){
+function sendcongthuctradao({sessionId, context, entities}){
   const recipientId = sessions[sessionId].fbid;
   botActions.sendCTCafeTruyenThong(recipientId);
 }
