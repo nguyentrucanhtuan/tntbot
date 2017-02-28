@@ -158,9 +158,23 @@ BotActions.prototype.sendListProducts = function(sender,products){
 
 
 BotActions.prototype.sendMyWishlist = function(sender){
-  var message =  "Qúy khách có thể vào đường dẫn sau để xem danh sách sản phẩm thường mua và thực hiện mua hàng: \n https://goo.gl/Vm6pQY";
-  botly.sendText({id : sender, text: message}, function (err,data){
+  var message =  "Qúy khách có thể nhấn để xem danh sách sản phẩm thường mua và thực hiện mua hàng:";
+  /*botly.sendText({id : sender, text: message}, function (err,data){
 
+  });*
+
+  //var message =  "Tips: Quý khách có thể lọc sản phẩm theo Danh mục sản phẩm hoặc chọn sản phẩm vào danh sách thường mua để mua nhanh lần sau";
+  /*botly.sendText({id : sender, text: message}, function (err,data){
+
+  });*/
+  let buttons = []
+  buttons.push(botly.createWebURLButton("Danh sách thường mua", "https://goo.gl/Vm6pQY","full"))
+
+  botly.sendButtons({id: sender, text: message, buttons: buttons}
+      , function (err, data) {
+        console.log(err)
+        console.log(data)
+          //log it
   });
 }
 
