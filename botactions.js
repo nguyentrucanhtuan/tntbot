@@ -169,6 +169,7 @@ BotActions.prototype.sendBuyLink = function(sender){
   /*botly.sendText({id : sender, text: message}, function (err,data){
 
   });*/
+  let buttons = []
   buttons.push(botly.createWebURLButton("Đặt hàng", "https://goo.gl/UPEuFJ","full",true))
 
   botly.sendButtons({id: sender, text: message, buttons: buttons}
