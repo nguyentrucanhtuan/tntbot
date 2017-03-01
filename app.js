@@ -252,6 +252,32 @@ botly.on('message', (sender, message, data) => {
     }*/
 });
 
+
+function witRunAction(sessionId,message){
+  wit.runActions(
+             sessionId, // the user's current session
+             message, // the user's message
+             sessions[sessionId].context // the user's current session state
+           ).then((context) => {
+             // Our bot did everything it has to do.
+             // Now it's waiting for further messages to proceed.
+             console.log('Waiting for next user messages');
+
+             // Based on the session state, you might want to reset the session.
+             // This depends heavily on the business logic of your bot.
+             // Example:
+             // if (context['done']) {
+             //   delete sessions[sessionId];
+             // }
+
+             // Updating the user's current session state
+             sessions[sessionId].context = context;
+           })
+           .catch((err) => {
+             console.error('Oops! Got an error from Wit: ', err.stack || err);
+           })
+}
+
 botly.on('postback', (sender, message, postback) => {
    console.log(message);
    const sessionId = findOrCreateSession(sender);
@@ -318,6 +344,9 @@ botly.on('postback', (sender, message, postback) => {
         case 'show_what_you_need':
             botActions.sendWhatYouNeed(sender)
             break;
+        case 'huong_dan_pha_che':
+            witRunAction(sessionId, 'Hướng Dẫn Pha Chế')
+          break;
   		}
     }
 
@@ -344,10 +373,13 @@ if (pageId) {
 		var buttons = [
         botly.createPostbackButton('Hướng dẫn TNTDrink', 'show_what_you_need'),
 				botly.createPostbackButton('Mua sắm', 'start_shopping'),
-        botly.createPostbackButton('Danh sách thường mua', 'show_my_wishlist'),
-        botly.createPostbackButton('Đặt hàng nhanh', 'show_buy_link'),
-        botly.createWebURLButton('Công thức pha chế', 'http://nguyenlieuphache.com/cong-thuc-pha-che'),
-      
+        botly.createPostbackButton('Công thức pha chế', 'huong_dan_pha_che'),
+        //botly.createPostbackButton('Danh sách thường mua', 'show_my_wishlist'),
+        botly.createWebURLButton('Danh sách thường mua', 'https://goo.gl/Vm6pQY'),
+        //botly.createPostbackButton('Đặt hàng nhanh', 'show_buy_link'),
+        botly.createWebURLButton('Đặt hàng nhanh', 'https://goo.gl/g7RI0X'),
+        //botly.createWebURLButton('Công thức pha chế', 'http://nguyenlieuphache.com/cong-thuc-pha-che'),
+
 		]
     botly.setPersistentMenu({pageId: pageId, buttons: buttons}, function (err, body) {
         //console.log("persistent menu cb:", err, body);
