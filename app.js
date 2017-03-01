@@ -347,7 +347,7 @@ if (pageId) {
         botly.createPostbackButton('Danh sách thường mua', 'show_my_wishlist'),
         botly.createPostbackButton('Đặt hàng nhanh', 'show_buy_link'),
         botly.createWebURLButton('Công thức pha chế', 'http://nguyenlieuphache.com/cong-thuc-pha-che'),
-        botly.createWebURLButton('Nguyenlieuphache.com', 'http://nguyenlieuphache.com'),
+      
 		]
     botly.setPersistentMenu({pageId: pageId, buttons: buttons}, function (err, body) {
         //console.log("persistent menu cb:", err, body);
