@@ -65,7 +65,7 @@ BotActions.prototype.sendCategoriesQuickReply = function(sender){
 
 
 
-BotActions.prototype.sendProducts = function(sender,categoryId){
+BotActions.prototype.sendProducts = function(sender,categoryId,callback = (err,data)=>console.log("send products cb:", err, data)){
   wooAPI.productsByCategoryId(categoryId,5).then(function(products){
     let elements = [];
     products.map(function(product){
@@ -84,7 +84,7 @@ BotActions.prototype.sendProducts = function(sender,categoryId){
     });
 
     botly.sendGeneric({id: sender, elements: elements},function (err, data) {
-        console.log("send generic cb:", err, data);
+        callback()
     });
   })
 
