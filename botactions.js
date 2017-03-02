@@ -225,7 +225,7 @@ BotActions.prototype.sendWhatYouNeed = function(sender){
   });
 }
 
-BotActions.prototype.sendCTCafeTruyenThong = function(sender){
+BotActions.prototype.sendCTCafeTruyenThong = function(sender,callback= ()=>console.log('gui cong thuc pha che')){
   let elements = [];
 
       let element1 = {
@@ -278,7 +278,7 @@ BotActions.prototype.sendCTCafeTruyenThong = function(sender){
   elements.push(element4)
 
   botly.sendGeneric({id: sender, elements: elements},function (err, data) {
-
+    callback();
   });
 }
 module.exports = BotActions;
