@@ -389,10 +389,10 @@ if (pageId) {
         botly.createPostbackButton('Hướng dẫn TNTDrink', 'show_what_you_need'),
 				botly.createPostbackButton('Mua sắm', 'start_shopping'),
         botly.createPostbackButton('Công thức pha chế', 'huong_dan_pha_che'),
-        botly.createPostbackButton('Danh sách thường mua', 'show_my_wishlist'),
-        //botly.createWebURLButton('Danh sách thường mua', 'https://goo.gl/Vm6pQY'),
-        botly.createPostbackButton('Đặt hàng nhanh', 'show_buy_link'),
-        //botly.createWebURLButton('Đặt hàng nhanh', 'https://goo.gl/g7RI0X'),
+        //botly.createPostbackButton('Danh sách thường mua', 'show_my_wishlist'),
+        botly.createWebURLButton('Danh sách thường mua', 'https://goo.gl/Vm6pQY'),
+        //botly.createPostbackButton('Đặt hàng nhanh', 'show_buy_link'),
+        botly.createWebURLButton('Đặt hàng nhanh', 'https://goo.gl/g7RI0X'),
         //botly.createWebURLButton('Công thức pha chế', 'http://nguyenlieuphache.com/cong-thuc-pha-che'),
 
 		]
