@@ -322,7 +322,7 @@ botly.on('postback', (sender, message, postback) => {
               })
    }else if(postback && postback.indexOf("PRODUCT_BY_CATEGORY_") !== -1){
        let categoryId = parseInt(postback.replace('PRODUCT_BY_CATEGORY_',''))
-       let callback = botActions.sendCategoriesList(sender);
+       const callback = botActions.sendCategoriesList(sender);
        botActions.sendProducts(sender,categoryId,callback);
   }else if(postback && postback.indexOf("BUY_PRODUCT_BY_ID_") !== -1){
       let productId = parseInt(postback.replace('BUY_PRODUCT_BY_ID_',''))
@@ -392,12 +392,12 @@ if (pageId) {
         //botly.createPostbackButton('Danh sách thường mua', 'show_my_wishlist'),
         //botly.createWebURLButton('Danh sách thường mua', 'https://goo.gl/Vm6pQY'),
         //botly.createPostbackButton('Đặt hàng nhanh', 'show_buy_link'),
-        //botly.createWebURLButton('Đặt hàng nhanh', 'https://goo.gl/g7RI0X'),
+        botly.createWebURLButton('Đặt hàng nhanh', 'https://goo.gl/g7RI0X'),
         //botly.createWebURLButton('Công thức pha chế', 'http://nguyenlieuphache.com/cong-thuc-pha-che'),
 
 		]
     botly.setPersistentMenu({pageId: pageId, buttons: buttons}, function (err, body) {
-        //console.log("persistent menu cb:", err, body);
+        console.log("persistent menu cb:", err, body);
     })
 }
 
