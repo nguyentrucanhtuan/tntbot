@@ -54,40 +54,6 @@ const firstEntityValue = (entities, entity) => {
 };
 
 
-// Setting up our bot
-const wit = new Wit({
-  accessToken: Config.WIT_TOKEN,
-  actions,
-  logger: new log.Logger(log.INFO)
-});
-
-
-function witRunAction(sessionId,message){
-  wit.runActions(
-             sessionId, // the user's current session
-             message, // the user's message
-             sessions[sessionId].context // the user's current session state
-           ).then((context) => {
-             // Our bot did everything it has to do.
-             // Now it's waiting for further messages to proceed.
-             console.log('Waiting for next user messages');
-
-             // Based on the session state, you might want to reset the session.
-             // This depends heavily on the business logic of your bot.
-             // Example:
-             // if (context['done']) {
-             //   delete sessions[sessionId];
-             // }
-
-             // Updating the user's current session state
-             sessions[sessionId].context = context;
-           })
-           .catch((err) => {
-             console.error('Oops! Got an error from Wit: ', err.stack || err);
-           })
-}
-
-
 
 const actions = {
   send(request, response) {
@@ -133,6 +99,44 @@ const actions = {
   // You should implement your custom actions here
   // See https://wit.ai/docs/quickstart
 };
+
+
+// Setting up our bot
+const wit = new Wit({
+  accessToken: Config.WIT_TOKEN,
+  actions,
+  logger: new log.Logger(log.INFO)
+});
+
+
+function witRunAction(sessionId,message){
+  wit.runActions(
+             sessionId, // the user's current session
+             message, // the user's message
+             sessions[sessionId].context // the user's current session state
+           ).then((context) => {
+             // Our bot did everything it has to do.
+             // Now it's waiting for further messages to proceed.
+             console.log('Waiting for next user messages');
+
+             // Based on the session state, you might want to reset the session.
+             // This depends heavily on the business logic of your bot.
+             // Example:
+             // if (context['done']) {
+             //   delete sessions[sessionId];
+             // }
+
+             // Updating the user's current session state
+             sessions[sessionId].context = context;
+           })
+           .catch((err) => {
+             console.error('Oops! Got an error from Wit: ', err.stack || err);
+           })
+}
+
+
+
+
 
 
 function merge({context,entities}){
