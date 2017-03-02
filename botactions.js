@@ -65,7 +65,7 @@ BotActions.prototype.sendCategoriesQuickReply = function(sender){
 
 
 
-BotActions.prototype.sendProducts = function(sender,categoryId,callback = (err,data)=>console.log("send products cb:", err, data)){
+BotActions.prototype.sendProducts = function(sender,categoryId,callback = ()=>console.log("send products cb:")){
   wooAPI.productsByCategoryId(categoryId,5).then(function(products){
     let elements = [];
     products.map(function(product){

@@ -307,8 +307,8 @@ botly.on('postback', (sender, message, postback) => {
               })
    }else if(postback && postback.indexOf("PRODUCT_BY_CATEGORY_") !== -1){
        let categoryId = parseInt(postback.replace('PRODUCT_BY_CATEGORY_',''))
-       let calback = botActions.sendCategoriesList(sender);
-       botActions.sendProducts(sender,categoryId,calback);
+       let callback = botActions.sendCategoriesList(sender);
+       botActions.sendProducts(sender,categoryId,callback);
   }else if(postback && postback.indexOf("BUY_PRODUCT_BY_ID_") !== -1){
       let productId = parseInt(postback.replace('BUY_PRODUCT_BY_ID_',''))
       console.log(productId)
