@@ -382,7 +382,7 @@ if (pageId) {
         //botly.createPostbackButton('Danh sách thường mua', 'show_my_wishlist'),
         botly.createWebURLButton('Danh sách thường mua', 'https://goo.gl/Vm6pQY'),
         //botly.createPostbackButton('Đặt hàng nhanh', 'show_buy_link'),
-        botly.createWebURLButton('Đặt hàng nhanh', 'https://goo.gl/g7RI0X'),
+        //botly.createWebURLButton('Đặt hàng nhanh', 'https://goo.gl/g7RI0X'),
         //botly.createWebURLButton('Công thức pha chế', 'http://nguyenlieuphache.com/cong-thuc-pha-che'),
 
 		]
