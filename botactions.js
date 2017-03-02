@@ -86,7 +86,7 @@ BotActions.prototype.sendProducts = function(sender,categoryId,callback = ()=>co
     botly.sendGeneric({id: sender, elements: elements},function (err, data) {
         setTimeout(function () {
           callback()
-        },500);
+        },2000);
     });
   })
 
