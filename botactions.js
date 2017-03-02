@@ -2,8 +2,7 @@ const WooAPI = require('./wooapi.js')
 const wooAPI = new WooAPI();
 const Config = require('./const.js');
 const Botly = require("botly");
-
-
+const async = require('async');
 
 
 const botly = new Botly({
@@ -41,7 +40,7 @@ BotActions.prototype.sendCategoriesQuickReply = function(sender){
   wooAPI.getCategories().then(function (categories){
     console.log(sender)
     let elements = []
-    categories.map(function(category){
+    /*categories.map(function(category){
         let element = {
             title: category.name,
             image_url: category.image.src,
@@ -53,12 +52,30 @@ BotActions.prototype.sendCategoriesQuickReply = function(sender){
         };
 
        elements.push(element)
+    })*/
+
+    async.map(categories,function(category){
+        let element = {
+            title: category.name,
+            image_url: category.image.src,
+            subtitle: category.description,
+            buttons: [
+                botly.createPostbackButton("Chọn "+category.name, "PRODUCT_BY_CATEGORY_"+category.id)
+            ],
+
+        };
+
+       elements.push(element)
+    }, function(e,r){
+      botly.sendGeneric({id: sender, elements: elements},function (err, data) {
+          console.log("send generic cb:", err, data);
+      });
     })
 
 
-    botly.sendGeneric({id: sender, elements: elements},function (err, data) {
-        console.log("send generic cb:", err, data);
-    });
+    //botly.sendGeneric({id: sender, elements: elements},function (err, data) {
+    //    console.log("send generic cb:", err, data);
+    //});
   })
 
 };
