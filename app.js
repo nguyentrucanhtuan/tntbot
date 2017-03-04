@@ -244,7 +244,7 @@ function sendcongthuctradao({sessionId, context, entities}){
 function menuHelp({sessionId, context, entities}){
   const recipientId = sessions[sessionId].fbid;
   console.log('menuHelp');
-  botActions.sendWhatYouNeed(recipientId)
+  botActions.sendMenuHelp(recipientId)
 }
 
 

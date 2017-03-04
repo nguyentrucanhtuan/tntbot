@@ -227,6 +227,21 @@ BotActions.prototype.sendWhatYouNeed = function(sender){
   });
 }
 
+BotActions.prototype.sendMenuHelp = function(sender){
+  let quick_replies = [
+    botly.createQuickReply('Bắt đầu mua sắm','start_shopping'),
+    botly.createQuickReply('Hướng dẫn pha chế','empty'),
+    botly.createQuickReply('Địa chỉ shop','empty'),
+    botly.createQuickReply('Tài Khoản Ngân Hàng','empty'),
+    botly.createQuickReply('Đặt Hàng Nhanh','show_buy_link'),
+  ];
+  let help = ''
+
+  botly.sendText({id: sender, text: help, quick_replies},function (err, data) {
+      console.log("send generic cb:", err, data);
+  });
+}
+
 BotActions.prototype.sendCTCafeTruyenThong = function(sender,callback= ()=>console.log('gui cong thuc pha che')){
   let elements = [];
 
