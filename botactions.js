@@ -213,14 +213,14 @@ BotActions.prototype.sendTips = function(sender){
 
 BotActions.prototype.sendWhatYouNeed = function(sender){
   let quick_replies = [
+    botly.createQuickReply('Bắt đầu mua sắm','start_shopping'),
     botly.createQuickReply('Hướng dẫn pha chế','empty'),
-    botly.createQuickReply('Tài Khoản Ngân Hàng','empty'),
     botly.createQuickReply('Địa chỉ shop','empty'),
-    botly.createQuickReply('Đặt Hàng','empty'),
-    botly.createQuickReply('Tìm sản phẩm','empty')
+    botly.createQuickReply('Tài Khoản Ngân Hàng','empty'),
+    botly.createQuickReply('Đặt Hàng Nhanh','show_buy_link'),
   ];
-  let help = 'Quý khách cần gì? \n'+
-  'Tips: QUý khách có thể gõ trực tiếp cụm từ dưới đây đề truy cập nhanh, ví dụ "hướng dẫn pha chế" để xem các công thức pha chế. Cảm ơn^^'
+  let help = 'Quý khách cần giúp đỡ gì? \n'+
+  'Quý khách có thể gõ trực tiếp cụm từ dưới đây đề truy cập nhanh, ví dụ "hướng dẫn pha chế" để xem các công thức pha chế. Cảm ơn^^'
 
   botly.sendText({id: sender, text: help, quick_replies},function (err, data) {
       console.log("send generic cb:", err, data);
