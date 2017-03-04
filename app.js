@@ -410,6 +410,10 @@ if (pageId) {
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 app.use('/webhook', botly.router());
+
+app.post('/scheduler',function(req, res) {
+  return res.json(req.body);
+})
 app.set('port', port);
 
 
