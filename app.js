@@ -204,39 +204,39 @@ function sendProductsList({sessionId, context, entities}){
 
 function sendcongthuccafetruyenthong({sessionId, context, entities}){
   const recipientId = sessions[sessionId].fbid;
-  const callback = witRunAction(sessionId,'Hướng dẫn pha chế')
-  botActions.sendCTCafeTruyenThong(recipientId,callback);
+ //const callback = witRunAction(sessionId,'Hướng dẫn pha chế')
+  //botActions.sendCTCafeTruyenThong(recipientId,callback);
 }
 
 function sendcongthuctrasua({sessionId, context, entities}){
   const recipientId = sessions[sessionId].fbid;
-  const callback = witRunAction(sessionId,'Hướng dẫn pha chế')
-  botActions.sendCTCafeTruyenThong(recipientId,callback);
+  //const callback = witRunAction(sessionId,'Hướng dẫn pha chế')
+  //botActions.sendCTCafeTruyenThong(recipientId,callback);
 }
 
 function sendcongthuccafedaxay({sessionId, context, entities}){
   const recipientId = sessions[sessionId].fbid;
-  const callback = witRunAction(sessionId,'Hướng dẫn pha chế')
-  botActions.sendCTCafeTruyenThong(recipientId,callback);
+  //const callback = witRunAction(sessionId,'Hướng dẫn pha chế')
+//  botActions.sendCTCafeTruyenThong(recipientId,callback);
 }
 
 function sendcongthucphasinhto({sessionId, context, entities}){
   const recipientId = sessions[sessionId].fbid;
-  const callback = witRunAction(sessionId,'Hướng dẫn pha chế')
-  botActions.sendCTCafeTruyenThong(recipientId,callback);
+  //const callback = witRunAction(sessionId,'Hướng dẫn pha chế')
+//  botActions.sendCTCafeTruyenThong(recipientId,callback);
 }
 
 function sendcongthucsoda({sessionId, context, entities}){
   const recipientId = sessions[sessionId].fbid;
-  const callback = witRunAction(sessionId,'Hướng dẫn pha chế')
-  botActions.sendCTCafeTruyenThong(recipientId,callback);
+  ///const callback = witRunAction(sessionId,'Hướng dẫn pha chế')
+///  botActions.sendCTCafeTruyenThong(recipientId,callback);
 }
 
 
 function sendcongthuctradao({sessionId, context, entities}){
   const recipientId = sessions[sessionId].fbid;
-  const callback = witRunAction(sessionId,'Hướng dẫn pha chế')
-  botActions.sendCTCafeTruyenThong(recipientId,callback);
+  //const callback = witRunAction(sessionId,'Hướng dẫn pha chế')
+//  botActions.sendCTCafeTruyenThong(recipientId,callback);
 }
 
 
