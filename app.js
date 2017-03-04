@@ -84,6 +84,7 @@ const actions = {
         return resolve();
     });
   },
+  menuHelp : menuHelp,
   fetchProduct: fetchProduct,
   sendProductBubble: sendProductBubble,
   merge: merge,
@@ -240,6 +241,10 @@ function sendcongthuctradao({sessionId, context, entities}){
 }
 
 
+function menuHelp({sessionId, context, entities}){
+  const recipientId = sessions[sessionId].fbid;
+  botActions.sendWhatYouNeed(recipientId)
+}
 
 
 
