@@ -30,7 +30,7 @@ BotActions.prototype.sendCategoriesList = function(sender){
     })
 
 
-    botly.sendText({id: sender, text: "TnTDrink cung cấp các sản phẩm sau:", quick_replies},function (err, data) {
+    botly.sendText({id: sender, text: "TNT DRINK cung cấp các sản phẩm sau:", quick_replies},function (err, data) {
         console.log("send generic cb:", err, data);
     });
   })
