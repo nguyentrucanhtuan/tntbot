@@ -235,7 +235,7 @@ BotActions.prototype.sendMenuHelp = function(sender){
     botly.createQuickReply('Tài Khoản Ngân Hàng','empty'),
     botly.createQuickReply('Đặt Hàng Nhanh','show_buy_link'),
   ];
-  let help = ''
+  let help = '  '
 
   botly.sendText({id: sender, text: help, quick_replies},function (err, data) {
       console.log("send generic cb:", err, data);
