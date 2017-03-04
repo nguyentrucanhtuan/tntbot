@@ -3,7 +3,7 @@ const wooAPI = new WooAPI();
 const Config = require('./const.js');
 const Botly = require("botly");
 
-
+const striptags = require('striptags');
 
 
 const botly = new Botly({
@@ -72,7 +72,7 @@ BotActions.prototype.sendProducts = function(sender,categoryId,callback = ()=>co
         let element = {
             title: product.name,
             image_url: product.images[0].src,
-            subtitle: product.short_description,
+            subtitle: striptags(product.short_description),
             buttons: [
                 botly.createWebURLButton("Mua", "http://tnt-react.herokuapp.com/products/"+product.id),
                 botly.createWebURLButton("Thêm vào wishlist", "https://tnt-react.herokuapp.com/add-wishlist/"+product.id,'compact')
@@ -97,7 +97,7 @@ BotActions.prototype.sendProduct = function(sender,product){
     let element = {
       "title": product.name,
       "image_url": product.images[0].src,
-      "subtitle": product.short_description,
+      "subtitle": striptags(product.short_description),
       "buttons": [
         {
           "type": "postback",

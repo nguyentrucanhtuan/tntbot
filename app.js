@@ -206,38 +206,38 @@ function sendProductsList({sessionId, context, entities}){
 function sendcongthuccafetruyenthong({sessionId, context, entities}){
   const recipientId = sessions[sessionId].fbid;
  //const callback = witRunAction(sessionId,'Hướng dẫn pha chế')
-  //botActions.sendCTCafeTruyenThong(recipientId,callback);
+botActions.sendCTCafeTruyenThong(recipientId);
 }
 
 function sendcongthuctrasua({sessionId, context, entities}){
   const recipientId = sessions[sessionId].fbid;
   //const callback = witRunAction(sessionId,'Hướng dẫn pha chế')
-  //botActions.sendCTCafeTruyenThong(recipientId,callback);
+  botActions.sendCTCafeTruyenThong(recipientId);
 }
 
 function sendcongthuccafedaxay({sessionId, context, entities}){
   const recipientId = sessions[sessionId].fbid;
   //const callback = witRunAction(sessionId,'Hướng dẫn pha chế')
-//  botActions.sendCTCafeTruyenThong(recipientId,callback);
+  botActions.sendCTCafeTruyenThong(recipientId);
 }
 
 function sendcongthucphasinhto({sessionId, context, entities}){
   const recipientId = sessions[sessionId].fbid;
   //const callback = witRunAction(sessionId,'Hướng dẫn pha chế')
-//  botActions.sendCTCafeTruyenThong(recipientId,callback);
+  botActions.sendCTCafeTruyenThong(recipientId);
 }
 
 function sendcongthucsoda({sessionId, context, entities}){
   const recipientId = sessions[sessionId].fbid;
   ///const callback = witRunAction(sessionId,'Hướng dẫn pha chế')
-///  botActions.sendCTCafeTruyenThong(recipientId,callback);
+    botActions.sendCTCafeTruyenThong(recipientId);
 }
 
 
 function sendcongthuctradao({sessionId, context, entities}){
   const recipientId = sessions[sessionId].fbid;
   //const callback = witRunAction(sessionId,'Hướng dẫn pha chế')
-//  botActions.sendCTCafeTruyenThong(recipientId,callback);
+  botActions.sendCTCafeTruyenThong(recipientId);
 }
 
 
@@ -328,7 +328,8 @@ botly.on('postback', (sender, message, postback) => {
               })
    }else if(postback && postback.indexOf("PRODUCT_BY_CATEGORY_") !== -1){
        let categoryId = parseInt(postback.replace('PRODUCT_BY_CATEGORY_',''))
-       botActions.sendProducts(sender,categoryId,() => botActions.sendCategoriesList(sender));
+       //botActions.sendProducts(sender,categoryId,() => botActions.sendCategoriesList(sender));
+       botActions.sendProducts(sender,categoryId);
   }else if(postback && postback.indexOf("BUY_PRODUCT_BY_ID_") !== -1){
       let productId = parseInt(postback.replace('BUY_PRODUCT_BY_ID_',''))
       console.log(productId)

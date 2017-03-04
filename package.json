@@ -24,7 +24,8 @@
     "node-uuid": "^1.4.7",
     "node-wit": "^4.2.0",
     "request": "^2.71.0",
-    "slugify": "^1.1.0"
+    "slugify": "^1.1.0",
+    "striptags": "^3.0.1"
   },
   "repository": {
     "type": "git",
