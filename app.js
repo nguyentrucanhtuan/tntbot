@@ -447,7 +447,9 @@ app.post('/scheduler',function(req, res) {
               console.log(data);
           });
         }else{
-
+          botly.sendList({id: user, elements: req.body.list_elements}, (err, data) => {
+              console.log("send generic cb:", err, data);
+          });
         }
       }
   });
