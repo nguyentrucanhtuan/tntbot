@@ -440,10 +440,10 @@ app.post('/scheduler',function(req, res) {
 
       if(req.body.send_template){
         // send template after text
+        console.log('sen template')
         if(req.body.template_type == 'generic'){
-          req.body.generic_elements.forEach(function(element){
-            console.log('prince element')
-            console.log(element);
+          botly.sendGeneric({id: user, elements: req.body.generic_elements, aspectRatio: Botly.CONST.IMAGE_ASPECT_RATIO.HORIZONTAL}, (err, data) => {
+              console.log("send generic cb:", err, data);
           });
         }else{
 
