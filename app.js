@@ -441,9 +441,10 @@ app.post('/scheduler',function(req, res) {
       if(req.body.send_template){
         // send template after text
         if(req.body.template_type == 'generic'){
-          req.body.generic_elements.forEach(function(el){
-            console.log(el.buttons);
-          })
+          req.body.generic_elements.forEach(function(element){
+            console.log('prince element')
+            console.log(element);
+          });
         }else{
 
         }
