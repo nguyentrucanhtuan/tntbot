@@ -419,7 +419,7 @@ app.use('/webhook', botly.router());
 
 
 app.post('/scheduler',function(req, res) {
-  console.log(sessions);
+  console.log(req.body);
   console.log(users);
   let message = req.body.message;
 
@@ -440,6 +440,11 @@ app.post('/scheduler',function(req, res) {
 
       if(req.body.send_template){
         // send template after text
+        if(req.body.template_type == 'generic'){
+
+        }else{
+
+        }
       }
   });
 
