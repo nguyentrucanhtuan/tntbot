@@ -412,7 +412,19 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use('/webhook', botly.router());
 
 app.post('/scheduler',function(req, res) {
-  console.log(req.body);
+  console.log(sessions);
+  let message = req.body.message;
+  if(!req.body.use_attachment){
+    // send only text
+
+  }else{
+
+
+  }
+
+  if(req.body.send_template){
+    // send template after text
+  }
   return res.json(req.body);
 })
 app.set('port', port);
