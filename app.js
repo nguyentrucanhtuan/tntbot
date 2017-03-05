@@ -431,8 +431,8 @@ app.post('/scheduler',function(req, res) {
       if(req.body.use_attachment){
         botly.sendAttachment({
           id: user,
-          type: req.body.attachment_type,
-          payload: {url: req.body.url_attachment}
+          type: req.body.attachment.type,
+          payload: req.body.attachment.payload
         }, (err, data) => {
               //log it
         });
