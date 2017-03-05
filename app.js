@@ -419,6 +419,7 @@ app.use('/webhook', botly.router());
 
 app.post('/scheduler',function(req, res) {
   console.log(sessions);
+  console.log(users);
   let message = req.body.message;
   if(!req.body.use_attachment){
     // send only text
