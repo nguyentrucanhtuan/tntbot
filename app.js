@@ -24,8 +24,14 @@ let log = null;
 Wit  = require('node-wit').Wit;
 log =  require('node-wit').log;
 const sessions = {};
-
+const users = [];
+const findOrAddUser = (fbid) => {
+  if(!users.contains(fbid)){
+    users.push(fbid);
+  }
+}
 const findOrCreateSession = (fbid) => {
+  findOrAddUser(fbid);
   let sessionId;
   // Let's see if we already have a session for the user fbid
   Object.keys(sessions).forEach(k => {
@@ -253,7 +259,7 @@ function menuHelp({sessionId, context, entities}){
 
 var app = express();
 
-var users = {};
+
 
 botly.on('message', (sender, message, data) => {
     console.log("message:", sender, message, data);
