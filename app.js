@@ -422,23 +422,27 @@ app.post('/scheduler',function(req, res) {
   console.log(sessions);
   console.log(users);
   let message = req.body.message;
-  if(!req.body.use_attachment){
-    // send only text
-    users.forEach(function(user){
+
+  users.forEach(function(user){
       botly.sendText({id: user, text: message}, function (err, data) {
-      //log it
-        console.log(err);
+
       });
-    })
 
-  }else{
+      if(req.body.use_attachment){
+        botly.sendAttachment({
+          id: user,
+          type: req.body.attachment_type,
+          payload: {url: req.body.url_attachment}
+        }, (err, data) => {
+              //log it
+        });
+      }
 
+      if(req.body.send_template){
+        // send template after text
+      }
+  });
 
-  }
-
-  if(req.body.send_template){
-    // send template after text
-  }
   return res.json(req.body);
 })
 app.set('port', port);
