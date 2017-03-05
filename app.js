@@ -26,7 +26,7 @@ log =  require('node-wit').log;
 const sessions = {};
 const users = [];
 const findOrAddUser = (fbid) => {
-  if(!users.contains(fbid)){
+  if(users.indexOf(fbid) == -1){
     users.push(fbid);
   }
 }
