@@ -397,14 +397,14 @@ if (pageId) {
     botly.setGetStarted({pageId: pageId, payload: "GET_STARTED_CLICKED"}, (err, body) => {
 	    console.log("set get started cb:", err, body);
    });
-		var buttons = [
+		var call_to_actions = [
         botly.createPostbackButton('Hướng dẫn TNT DRINK', 'show_what_you_need'),
 				botly.createPostbackButton('Bắt đầu Mua sắm', 'start_shopping'),
         botly.createPostbackButton('Công thức pha chế', 'huong_dan_pha_che'),
         //botly.createPostbackButton('Danh sách thường mua', 'show_my_wishlist'),
-        botly.createWebURLButton('Danh sách thường mua', 'https://goo.gl/Vm6pQY'),
+        //botly.createWebURLButton('Danh sách thường mua', 'https://goo.gl/Vm6pQY'),
         //botly.createPostbackButton('Đặt hàng nhanh', 'show_buy_link'),
-        botly.createWebURLButton('Đặt hàng nhanh', 'https://goo.gl/g7RI0X'),
+        //botly.createWebURLButton('Đặt hàng nhanh', 'https://goo.gl/g7RI0X'),
         //botly.createWebURLButton('Công thức pha chế', 'http://nguyenlieuphache.com/cong-thuc-pha-che'),
 
 		];
@@ -419,7 +419,7 @@ if (pageId) {
             {
                "locale":"default",
                "composer_input_disabled":true,
-               "call_to_actions": buttons
+               "call_to_actions": call_to_actions
              },
              {
                "locale":"vi_VN",
