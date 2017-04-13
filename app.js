@@ -449,11 +449,12 @@ if (pageId) {
                ]
              },
              {
-               "locale":"zh_CN",
+               "locale":"vi_VN",
                "composer_input_disabled":false
              }
            ]}, (err, body) => {
     //log it
+	   console.log("welcome cb:", err, body);
 });
 }
 
