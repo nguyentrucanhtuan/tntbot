@@ -394,9 +394,9 @@ botly.on('error', (ex) => {
 
 var pageId = '1514795795429764'
 if (pageId) {
-    botly.setGetStarted({pageId: pageId, payload: 'GET_STARTED_CLICKED'}, function (err, body) {
-        console.log("welcome cb:", err, body);
-    });
+    botly.setGetStarted({pageId: pageId, payload: "GET_STARTED_CLICKED"}, (err, body) => {
+	    console.log("set get started cb:", err, body);
+   });
 		/*var buttons = [
         botly.createPostbackButton('Hướng dẫn TNT DRINK', 'show_what_you_need'),
 				botly.createPostbackButton('Bắt đầu Mua sắm', 'start_shopping'),
