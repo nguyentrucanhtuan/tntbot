@@ -399,7 +399,7 @@ if (pageId) {
    });
 		var call_to_actions = [
         botly.createPostbackButton('Hướng dẫn TNT DRINK', 'show_what_you_need'),
-	botly.createPostbackButton('Bắt đầu Mua sắm', 'start_shopping'),
+	//botly.createPostbackButton('Bắt đầu Mua sắm', 'start_shopping'),
         botly.createPostbackButton('Công thức pha chế', 'huong_dan_pha_che'),
 	{
 		'title':'Đặt hàng',
