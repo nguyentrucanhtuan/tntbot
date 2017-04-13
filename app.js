@@ -399,8 +399,16 @@ if (pageId) {
    });
 		var call_to_actions = [
         botly.createPostbackButton('Hướng dẫn TNT DRINK', 'show_what_you_need'),
-				botly.createPostbackButton('Bắt đầu Mua sắm', 'start_shopping'),
+	botly.createPostbackButton('Bắt đầu Mua sắm', 'start_shopping'),
         botly.createPostbackButton('Công thức pha chế', 'huong_dan_pha_che'),
+	{
+		'title':'Đặt hàng',
+                'type':'nested',
+                'call_to_actions':[
+			botly.createWebURLButton('Danh sách thường mua', 'https://goo.gl/Vm6pQY'),
+			botly.createWebURLButton('Đặt hàng nhanh', 'https://goo.gl/g7RI0X'),
+		]
+	}
         //botly.createPostbackButton('Danh sách thường mua', 'show_my_wishlist'),
         //botly.createWebURLButton('Danh sách thường mua', 'https://goo.gl/Vm6pQY'),
         //botly.createPostbackButton('Đặt hàng nhanh', 'show_buy_link'),
