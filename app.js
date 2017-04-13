@@ -397,7 +397,7 @@ if (pageId) {
     botly.setGetStarted({pageId: pageId, payload: "GET_STARTED_CLICKED"}, (err, body) => {
 	    console.log("set get started cb:", err, body);
    });
-		/*var buttons = [
+		var buttons = [
         botly.createPostbackButton('Hướng dẫn TNT DRINK', 'show_what_you_need'),
 				botly.createPostbackButton('Bắt đầu Mua sắm', 'start_shopping'),
         botly.createPostbackButton('Công thức pha chế', 'huong_dan_pha_che'),
@@ -407,7 +407,8 @@ if (pageId) {
         botly.createWebURLButton('Đặt hàng nhanh', 'https://goo.gl/g7RI0X'),
         //botly.createWebURLButton('Công thức pha chế', 'http://nguyenlieuphache.com/cong-thuc-pha-che'),
 
-		]
+		];
+/*
     botly.setPersistentMenu({pageId: pageId, buttons: buttons}, function (err, body) {
         console.log("persistent menu cb:", err, body);
     })*/
@@ -418,35 +419,7 @@ if (pageId) {
             {
                "locale":"default",
                "composer_input_disabled":true,
-               "call_to_actions":[
-                 {
-                   "title":"My Account",
-                   "type":"nested",
-                   "call_to_actions":[
-                     {
-                       "title":"Pay Bill",
-                       "type":"postback",
-                       "payload":"PAYBILL_PAYLOAD"
-                     },
-                     {
-                       "title":"History",
-                       "type":"postback",
-                       "payload":"HISTORY_PAYLOAD"
-                     },
-                     {
-                       "title":"Contact Info",
-                       "type":"postback",
-                       "payload":"CONTACT_INFO_PAYLOAD"
-                     }
-                   ]
-                 },
-                 {
-                   "type":"web_url",
-                   "title":"Latest News",
-                   "url":"http://petershats.parseapp.com/hat-news",
-                   "webview_height_ratio":"full"
-                 }
-               ]
+               "call_to_actions": buttons
              },
              {
                "locale":"vi_VN",
