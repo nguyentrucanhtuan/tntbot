@@ -357,6 +357,7 @@ botly.on('postback', (sender, message, postback) => {
       //botActions.sendProducts(sender,categoryId);
   }
   else{
+	console.log(postback);
       switch (postback) {
   			case 'start_shopping':
   				botActions.sendCategoriesList(sender)
